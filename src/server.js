@@ -6,9 +6,9 @@ const port=3000;
 const app =express();
 
 
-
+//config template engine
 configViewEngine(app);
-
+//khai báo route
 app.use('/v1',webRouter)
 
 

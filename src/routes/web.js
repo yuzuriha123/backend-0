@@ -1,11 +1,8 @@
 const express=require('express');
 const router=express.Router();
+const {getHOme,getHELLO}=require('../controllers/homeController')
 
-router.get('/',(req,res)=>{
-    res.send('hello')
-})
-router.get('/hello',(req,res)=>{
-    res.render('sample.ejs')
-})
+router.get('/',getHOme)
+router.get('/hello',getHELLO)
 
 module.exports=router
