@@ -1,0 +1,59 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>homepage</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+      background-color: coral;
+    }
+  </style>
+  <body>
+    <div class="topnav">
+      <a class="active" href="/">Home</a>
+      <a href="/create-user">create-user</a>
+      <a href="/updateuser"> edit user</a>
+    </div>
+    <div class="table-container">
+      <div class="list-user">list user</div>
+      <table class="w3-table">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>city</th>
+          <th>Action</th>
+        </tr>
+        
+          <% listUser.forEach(function(user) { %>
+            <tr>
+            <td><%= user.id %></td>
+            <td><%= user.email %></td>
+            <td><%= user.name %></td>
+            <td><%= user.city %></td>
+            <td>
+              <a href="/updateuser/<%= user.id %>">edit</a>
+              <button>delete</button>
+            </td>
+          </tr>
+        <% }); %>
+       
+        
+      </table>
+    </div>
+  </body>
+</html>

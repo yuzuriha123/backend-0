@@ -1,0 +1,31 @@
+tải docker và file mysql.yml để hướng dẫn docer chạy mysql
+dùng docker pull mysql về 
+dùng cái dbeaver để tạo các bảng
+
+tạo bảng ở dbeaver sau đó import cái mysql vào 
+tạo connection và query 
+const connecion=mysql.createConnection({
+    host:'localhost',
+    port:3307,
+    user:'root',
+    password:'123456',
+    database:'hocapi'
+})
+connecion.query(
+    'select * from Users',
+    function(err,results,fields){
+        console.log(">>results",results);
+        //console.log(">>fields",fields);
+    }
+)
+
+mỗi tính năng mỗi router sẽ có 1 connection riêng sẽ cần truy vấn riêng
+nên sẽ phải tái sử dụng connection web lớn nhiều user query nhiều => tốn ram cpu
+=> ngỏm
+=> connecion pool giảm thiểu thời gian kết nối db bằng cách tái sử dụng các connection trước đó
+giúp đóng  connection sau khi query xong
+tạo 1 form điền có nút submit để lưu sau đó dùng 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); 
+để lấy thông tin từ post request 
+tạo 1 route để lấy req và 1 cái hàm handler để sử lý 
